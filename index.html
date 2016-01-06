@@ -1,0 +1,28 @@
+<html>
+  
+  <head>
+    <title>pixijs01</title>
+    <style>
+      body {margin:auto; padding:0;background-color:#000000;width:500px;}
+    </style>
+    <script src="pixi.js"></script>
+  </head>
+  
+  <body>
+    <script>
+      
+      var stage = new PIXI.Stage(0xDEF7F7, true);
+      var renderer PIXI.autoDetectRenderer(500, 700);
+      document.body.appendChild(renderer.view);
+      requestAnimFrame(animate);
+      
+      function animate()
+        {
+        requestAnimFrame(animate);
+        renderer.render(stage);
+        }
+        
+    </script>
+  </body>
+  
+</html>
