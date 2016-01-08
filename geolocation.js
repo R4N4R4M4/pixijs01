@@ -22,7 +22,8 @@ function onSuccess(position)
     heading = position.coords.heading;
     speed = position.coords.speed;
     timestamp = position.timestamp;
-    document.getElementById("geolocation").innerHTML = latitude + " - " + longitude;
+    var result = "("+latitude+"-"+longitude+") alt:"+altitude+"\nacc:"+accuracy+" aac:"+altitudeAccuracy+"\nhd:"+heading+" sp:"+speed+" ts:"+timestamp
+    document.getElementById("geolocation").innerHTML = result
 }
     
 function onError(error) 
