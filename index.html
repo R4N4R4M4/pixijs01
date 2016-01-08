@@ -5,24 +5,40 @@
     <style>
       body {margin:auto; padding:0;background-color:#000000;width:500px;}
     </style>
-    <script src="pixi.js"></script>
+    <script type="text/javascript" charset="utf-8" src="cordova-2.5.0.js"></script>
+
+  <script src="pixi.js"></script>
   </head>
   
+    <script type="text/javascript" charset="utf-8">
+      document.addEventListener("deviceready", onDeviceReady, false);
+      function onDeviceReady() {navigator.geolocation.getCurrentPosition(onSuccess, onError);}
+      function onSuccess(position) {
+        var element = document.getElementById('geolocation');
+        element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
+                            'Longitude: '          + position.coords.longitude             + '<br />' +
+                            'Altitude: '           + position.coords.altitude              + '<br />' +
+                            'Accuracy: '           + position.coords.accuracy              + '<br />' +
+                            'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
+                            'Heading: '            + position.coords.heading               + '<br />' +
+                            'Speed: '              + position.coords.speed                 + '<br />' +
+                            'Timestamp: '          + 
+ position.timestamp                    + '<br />';
+    }
+
+    function onError(error) {alert('code:'+error.code+'\n'+'message:'+error.message+'\n');}
+    function animate() {requestAnimFrame(animate); renderer.render(stage);}
+        
+    </script>
+    
   <body>
     <script>
-      
       var stage = new PIXI.Stage(0xDEF7F7, true);
       var renderer PIXI.autoDetectRenderer(500, 700);
       document.body.appendChild(renderer.view);
       requestAnimFrame(animate);
-      
-      function animate()
-        {
-        requestAnimFrame(animate);
-        renderer.render(stage);
-        }
-        
-    </script>
+    </script>    
+    <p id="geolocation">Finding geolocation...</p>
   </body>
   
 </html>
