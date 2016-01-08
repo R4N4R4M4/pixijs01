@@ -22,6 +22,7 @@ function onSuccess(position)
     heading = position.coords.heading;
     speed = position.coords.speed;
     timestamp = position.timestamp;
+    document.getElementById("geolocation").innerHTML = latitude + " - " + longitude;
 }
     
 function onError(error) 
